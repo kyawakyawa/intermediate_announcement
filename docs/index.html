@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>うぇぶハンノチュウカンハッピョウ</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet"/>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="test1.css">
+		<link rel="stylesheet" type="text/css" href="test2.css">
+		<link rel="stylesheet" type="text/css" href="test3.css">
+		<link rel="stylesheet" type="text/css" href="test4.css">
+	</head>
+	<body>
+		<div id="vue">
+			<div id="app1" v-if="isShow1()">
+				<div @click="clicked1"><h2>何を作ってる?</h2></div>
+				<div v-if="seen1"><h4>理大祭ルート検索</h4><br>
+					<div class="concrete" @click="clicked2">具体的に？
+						<div v-if="seen2">
+							<li>現在地と目的地を入力してもらい3D地図上にルートを表示する</li>
+							<li>人気のブースを表示する</li>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="app2" v-if="isShow2()">
+				<div @click="clicked1"><h2>入力の方法は?</h2></div>
+				<div v-if="seen1">
+					<div v-for="method in methods">
+						<li>{{ method }}</li>
+					</div>
+				</div>
+			</div>
+			<div id="app3" v-if="isShow3()">
+				<div @click="clicked1"><h2>これまで何をやった?</h2></div>
+				<div v-if="seen1">
+					<div v-for="done in dones">
+						<li>{{ done }}</li>
+					</div>
+				</div>
+			</div>
+			<div id="app4" v-if="isShow4()">
+				<div @click="clicked1"><h2>これから何をやる?</h2></div>
+				<div v-if="seen1">
+					<div v-for="todo in todos">
+						<li>{{ todo }}</li>
+					</div>
+				</div>
+			</div>
+			<br><br><br>
+			<button type="button" @click="backward">前へ</button><button type="button" @click="forward">次へ</button>
+		</div>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+		<script type="text/javascript" src="./index.js"></script>
+	</body>
+</html>
